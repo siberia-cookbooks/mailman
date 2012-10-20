@@ -8,6 +8,8 @@
 #
 
 default['mailman'] = {
+  'uid' => '110',
+  'gid' => '110',
   'mailman_home' => '/var/db/mailman',
   'mailman_owner' => 'mailman@lists.example.com',
   'mailman_list_owner' => 'example@example.com',
