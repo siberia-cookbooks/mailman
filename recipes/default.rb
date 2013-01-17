@@ -117,3 +117,19 @@ cron "mailman-cull_bad_shunt" do
   command "/opt/local/bin/python2.7 -S /opt/local/lib/mailman/cron/cull_bad_shunt"
   user "mailman"
 end
+
+template "/opt/local/lib/mailman/Mailman/mm_cfg.py" do
+  source "mm_cfg.py.erb"
+  owner "root"
+  group "mailman"
+  mode "0644"
+end
+
+execute "create-mailman-list" do
+  command "/opt/local/lib/mailman/bin/newlist -q -u #{node['fqdn']} -e #{node['fqdn']} mailman '#{node['mailman']['mailman_list_owner']}' '#{node['mailman']['mailman_list_password']}'"
+  not_if { ::File.exists?("/var/db/mailman/lists/mailman/config.pck") }
+end
+
+service "pkgsrc/mailman" do
+  action [:enable, :restart]
+end
