@@ -47,9 +47,9 @@ end
   end
 end
 
-if node[:mailman][:mta] == 'exim'
+if node['mailman']['mta'] == 'exim'
   # FIXME: need to unwrangle the install-mailman.sh script still
-elsif node[:mailman][:mta] == 'postfix'
+elsif node['mailman']['mta'] == 'postfix'
   #
   # The postfix-to-mailman.py script expects the $prefix/lib/mailman/mail
   # directory to exist under /var/db/mailman (where mailman configs and logs, etc.
