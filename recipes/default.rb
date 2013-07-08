@@ -41,7 +41,7 @@ end
   python27
   mailman
 }.each do |p|
-  package "#{p}" do
+  package p do
     version "2.1.14.1"
     action :install
   end
