@@ -15,6 +15,7 @@ default['mailman'] = {
   'mailman_list_owner' => 'example@example.com',
   'mailman_list_password' => 'changeme',
   'mailman_site_password' => 'changeme',
+  'mailman_create_password' => 'changeme',
   'mta' => 'postfix',
   'python_version' => '2.7'
 }
