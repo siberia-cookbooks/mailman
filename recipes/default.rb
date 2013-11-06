@@ -130,6 +130,19 @@ execute "create-mailman-list" do
   not_if { ::File.exists?("/var/db/mailman/lists/mailman/config.pck") }
 end
 
+%w{
+  adm.pw
+  aliases
+  aliases.db
+  creator.pw
+}.each do |f|
+  file "/var/db/mailman/data/#{f}" do
+    owner "mailman"
+    group "mailman"
+    only_if { ::File.exists?("/var/db/mailman/data/#{f}") }
+  end
+end
+
 service "pkgsrc/mailman" do
   action [:enable, :restart]
 end
