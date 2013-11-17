@@ -1,42 +1,104 @@
-Description
-===========
+mailman Cookbook [![Build Status](https://travis-ci.org/siberia-cookbooks/mailman.png?branch=master)](https://www.travis-ci.org/siberia-cookbooks/mailman)
+==========================================================================================================================================================
 
 Installs and configures mailman.  When using Postfix as the MTA, it installs
 a postfix-to-mailman.py wrapper script and requires that the user still
 manually adds some lines to their main.cf and master.cf
 
 Requirements
-============
+------------
 
+ * Chef
+ * Git
+ * Internet Access
  * An MTA (presently exim/postfix) - more integration work to update
    configuration files still needs to be done.
 
 Attributes
-==========
+----------
 
- * mailman.uid - user identifier for the mailman user - defaults to 110
- * mailman.gid - group identifier for the mailman group - defaults to 110
- * mailman.mailman_home - mailmans home dir - defaults to /var/db/mailman
- * mailman.mailman_owner
- * mailman.mailman_list_owner
- * mailman.mailman_list_password
- * mailman.mailman_site_password
- * mailman.mta - mta being used (defaults to postfix)
- * mailman.python_version - used to fix which python binary to use when using pkg_alternatives
+e.g.
+#### mailman::default
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Type</th>
+    <th>Description</th>
+    <th>Default</th>
+  </tr>
+  <tr>
+    <td><tt>['mailman']['uid']</tt></td>
+    <td>Integer</td>
+    <td>user identifier for the mailman user</td>
+    <td>110</td>
+  </tr>
+  <tr>
+    <td><tt>['mailman']['gid']</tt></td>
+    <td>Integer</td>
+    <td>group identifier for the mailman group</td>
+    <td>false</td>
+  </tr>
+  <tr>
+    <td><tt>['mailman']['mailman_home']</tt></td>
+    <td>String</td>
+    <td>mailmans home dir</td>
+    <td>/var/db/mailman</td>
+  </tr>
+  <tr>
+    <td><tt>['mailman']['mailman_owner']</tt></td>
+    <td>String</td>
+    <td>mailmans home dir</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><tt>['mailman']['mailman_list_owner']</tt></td>
+    <td>String</td>
+    <td>mailmans home dir</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><tt>['mailman']['mailman_list_password']</tt></td>
+    <td>String</td>
+    <td>mailmans home dir</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><tt>['mailman']['mailman_site_password']</tt></td>
+    <td>String</td>
+    <td>mailmans home dir</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><tt>['mailman']['mta']</tt></td>
+    <td>String</td>
+    <td>mta being used</td>
+    <td>postfix</td>
+  </tr>
+  <tr>
+    <td><tt>['mailman']['python_version']</tt></td>
+    <td>String</td>
+    <td>used to fix which python binary to use when using pkg_alternatives</td>
+    <td>2.7</td>
+  </tr>
+</table>
 
 Example JSON:
 
-  {
-    'uid' => '110',
-    'gid' => '110',
-    'mailman_home' => '/var/db/mailman',
-    'mailman_owner' => 'mailman@lists.example.com',
-    'mailman_list_owner' => 'example@example.com',
-    'mailman_list_password' => 'changeme',
-    'mailman_site_password' => 'changeme',
-    'mta' => 'postfix',
-    'python_version' => '2.7'
+```json
+{
+  "mailman": {
+    "uid": "110",
+    "gid": "110",
+    "mailman_home": "/var/db/mailman",
+    "mailman_owner": "mailman@lists.example.com",
+    "mailman_list_owner": "example@example.com",
+    "mailman_list_password": "changeme",
+    "mailman_site_password": "changeme",
+    "mta": "postfix",
+    "python_version": "2.7"
   }
+}
+```
 
 Usage
 =====
