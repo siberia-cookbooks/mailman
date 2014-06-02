@@ -130,11 +130,11 @@ execute "create-mailman-list" do
 end
 
 execute "set-mailman-create-password" do
-  command "/opt/local/lib/mailman/bin/mmsitepass #{node['mailman']['mailman_site_pasword']}"
+  command "/opt/local/lib/mailman/bin/mmsitepass '#{node['mailman']['mailman_site_pasword']}'"
 end
 
 execute "set-mailman-site-password" do
-  command "/opt/local/lib/mailman/bin/mmsitepass -c #{node['mailman']['mailman_create_password']}"
+  command "/opt/local/lib/mailman/bin/mmsitepass -c '#{node['mailman']['mailman_create_password']}'"
 end
 
 %w{
