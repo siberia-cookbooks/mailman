@@ -42,7 +42,6 @@ end
   mailman
 }.each do |p|
   package p do
-    version "2.1.14.1"
     action :install
   end
 end
