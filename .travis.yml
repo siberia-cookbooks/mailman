@@ -4,4 +4,5 @@ gemfile:
 rvm:
   - 1.9.3
   - 2.0.0
+  - 2.1.0
 script: BUNDLE_GEMFILE=test/support/Gemfile bundle exec rake test foodcritic
