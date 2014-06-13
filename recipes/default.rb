@@ -3,7 +3,7 @@
 # Cookbook Name:: mailman
 # Recipe:: default
 #
-# Copyright 2012, Jacques Marneweck
+# Copyright 2012-2014, Jacques Marneweck
 #
 # All rights reserved - Do Not Redistribute
 #
