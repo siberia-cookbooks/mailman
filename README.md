@@ -1,6 +1,8 @@
 mailman Cookbook [![Build Status](https://travis-ci.org/siberia-cookbooks/mailman.svg?branch=master)](https://travis-ci.org/siberia-cookbooks/mailman)
 ======================================================================================================================================================
 
+[![Code Climate](https://codeclimate.com/github/siberia-cookbooks/mailman.png)](https://codeclimate.com/github/siberia-cookbooks/mailman)
+
 Installs and configures mailman.  When using Postfix as the MTA, it installs
 a postfix-to-mailman.py wrapper script and requires that the user still
 manually adds some lines to their main.cf and master.cf
